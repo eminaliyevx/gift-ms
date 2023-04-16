@@ -1,0 +1,179 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CUSTOMER
+  BUSINESS
+  ADMIN
+}
+
+enum Status {
+  ACTIVE
+  INACTIVE
+}
+
+enum OrderStatus {
+  PENDING
+  DELIVERED
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum DiscountType {
+  PERCENTAGE_TOTAL
+  FIXED_TOTAL
+}
+
+model User {
+  id        Int        @id @default(autoincrement())
+  email     String     @unique() @db.VarChar(256)
+  phone     String     @unique() @db.VarChar(16)
+  password  String     @db.VarChar(256)
+  role      Role
+  confirmed Boolean    @default(false)
+  status    Status     @default(ACTIVE)
+  createdAt DateTime   @default(now()) @db.Timestamp()
+  updatedAt DateTime   @updatedAt @db.Timestamp()
+  customer  Customer?
+  business  Business?
+  image     UserImage?
+}
+
+model UserImage {
+  id     String @id @default(cuid())
+  key    String @db.Text
+  url    String @db.Text
+  userId Int    @unique
+  user   User?  @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Customer {
+  firstName String
+  lastName  String
+  birthDate DateTime @db.Date
+  gender    Gender
+  userId    Int      @id
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  orders    Order[]
+}
+
+model Business {
+  name    String
+  userId  Int       @id
+  user    User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  product Product[]
+}
+
+model Category {
+  id         String      @id @default(cuid())
+  name       String      @unique @db.VarChar(256)
+  attributes Attribute[]
+  products   Product[]
+}
+
+model Attribute {
+  id                String             @id @default(cuid())
+  name              String             @unique @db.VarChar(256)
+  categories        Category[]
+  productAttributes ProductAttribute[]
+}
+
+model Product {
+  id                String             @id @default(cuid())
+  name              String             @db.VarChar(256)
+  description       String             @db.Text
+  createdAt         DateTime           @default(now()) @db.Timestamp()
+  updatedAt         DateTime           @updatedAt @db.Timestamp()
+  categoryId        String
+  businessUserId    Int?
+  category          Category           @relation(fields: [categoryId], references: [id])
+  business          Business?          @relation(fields: [businessUserId], references: [userId])
+  productAttributes ProductAttribute[]
+  images            ProductImage[]
+  prices            Price[]
+  cart              Cart[]
+  orderItems        OrderItem[]
+}
+
+model ProductAttribute {
+  id          String    @id @default(cuid())
+  value       String    @db.Text
+  productId   String
+  attributeId String
+  product     Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
+  attribute   Attribute @relation(fields: [attributeId], references: [id], onDelete: Cascade)
+}
+
+model ProductImage {
+  id        String  @id @default(cuid())
+  key       String  @db.Text
+  url       String  @db.Text
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Price {
+  id        String    @id @default(cuid())
+  productId String
+  value     Float     @db.DoublePrecision
+  startDate DateTime  @default(now()) @db.Timestamp()
+  endDate   DateTime? @db.Timestamp()
+  createdAt DateTime  @default(now()) @db.Timestamp()
+  updatedAt DateTime  @updatedAt @db.Timestamp()
+  product   Product   @relation(fields: [productId], references: [id], onDelete: Cascade)
+}
+
+model Cart {
+  userId    Int
+  productId String
+  quantity  Int     @default(1) @db.Integer
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@id([userId, productId])
+}
+
+model Discount {
+  id        String       @id @default(cuid())
+  code      String       @unique @db.VarChar(256)
+  type      DiscountType
+  value     Float        @db.DoublePrecision
+  limit     Int?         @db.Integer
+  remaining Int?         @db.Integer
+  startDate DateTime     @db.Timestamp()
+  endDate   DateTime?    @db.Timestamp()
+  createdAt DateTime     @default(now()) @db.Timestamp()
+  updatedAt DateTime     @updatedAt @db.Timestamp()
+}
+
+model OrderItem {
+  id        String   @id @default(cuid())
+  quantity  Int      @default(1) @db.Integer
+  productId String?
+  orderId   String?
+  product   Product? @relation(fields: [productId], references: [id], onDelete: SetNull)
+  order     Order?   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+}
+
+model Order {
+  id             String      @id @default(cuid())
+  status         OrderStatus @default(PENDING)
+  total          Float       @db.DoublePrecision
+  discountTotal  Float?      @db.DoublePrecision
+  location       String      @db.Text
+  note           String?     @db.Text
+  deliveredAt    DateTime?
+  items          OrderItem[]
+  customerUserId Int?
+  customer       Customer?   @relation(fields: [customerUserId], references: [userId], onDelete: SetNull)
+  createdAt      DateTime    @default(now()) @db.Timestamp()
+  updatedAt      DateTime    @updatedAt @db.Timestamp()
+}

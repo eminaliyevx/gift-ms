@@ -1,0 +1,88 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    volumes:
+      - /data/postgres:/data/postgres
+    env_file:
+      - .env
+
+  auth:
+    build:
+      context: .
+      dockerfile: ./apps/auth/Dockerfile
+      target: development
+    command: pnpm run start:dev auth
+    env_file:
+      - ./apps/auth/.env
+    ports:
+      - "3001:3001"
+    volumes:
+      - .:/usr/src/app
+
+  customer:
+    build:
+      context: .
+      dockerfile: ./apps/customer/Dockerfile
+      target: development
+    command: pnpm run start:dev customer
+    env_file:
+      - ./apps/customer/.env
+    ports:
+      - "3002:3002"
+    volumes:
+      - .:/usr/src/app
+
+  business:
+    build:
+      context: .
+      dockerfile: ./apps/business/Dockerfile
+      target: development
+    command: pnpm run start:dev business
+    env_file:
+      - ./apps/business/.env
+    ports:
+      - "3003:3003"
+    volumes:
+      - .:/usr/src/app
+
+  category:
+    build:
+      context: .
+      dockerfile: ./apps/category/Dockerfile
+      target: development
+    command: pnpm run start:dev category
+    env_file:
+      - ./apps/category/.env
+    ports:
+      - "3004:3004"
+    volumes:
+      - .:/usr/src/app
+
+  attribute:
+    build:
+      context: .
+      dockerfile: ./apps/attribute/Dockerfile
+      target: development
+    command: pnpm run start:dev attribute
+    env_file:
+      - ./apps/attribute/.env
+    ports:
+      - "3005:3005"
+    volumes:
+      - .:/usr/src/app
+
+  api:
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+      target: development
+    command: pnpm run start:dev api
+    env_file:
+      - ./apps/api/.env
+    ports:
+      - "80:80"
+    volumes:
+      - .:/usr/src/app
