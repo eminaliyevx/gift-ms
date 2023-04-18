@@ -28,6 +28,6 @@ async function bootstrap() {
 
   SwaggerModule.setup("swagger", app, document);
 
-  await app.listen(configService.get<number>("HTTP_PORT"));
+  await app.listen(configService.get<number>("API_HTTP_SERVICE_PORT"));
 }
 bootstrap();

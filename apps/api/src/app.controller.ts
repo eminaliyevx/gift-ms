@@ -1,10 +1,14 @@
 import {
   AccountWithoutPassword,
   AuthGuard,
+  CheckoutDto,
   CreateAttributeDto,
   CreateBusinessDto,
+  CreateCartDto,
   CreateCategoryDto,
   CreateCustomerDto,
+  CreateDiscountDto,
+  CreateProductDto,
   CreateUserDto,
   GetUser,
   LoginUserDto,
@@ -12,6 +16,8 @@ import {
   Token,
   UpdateAttributeDto,
   UpdateCategoryDto,
+  UpdateDiscountDto,
+  UpdateProductDto,
   UpdateUserDto,
 } from "@app/common";
 import { HttpService } from "@nestjs/axios";
@@ -25,12 +31,13 @@ import {
   Post,
   Query,
   UploadedFile,
+  UploadedFiles,
   UseGuards,
   UseInterceptors,
 } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
-import { FileInterceptor } from "@nestjs/platform-express";
-import { ApiBearerAuth, ApiConsumes, ApiTags } from "@nestjs/swagger";
+import { FileInterceptor, FilesInterceptor } from "@nestjs/platform-express";
+import { ApiBearerAuth, ApiConsumes, ApiQuery, ApiTags } from "@nestjs/swagger";
 import { Role } from "@prisma/client";
 import { AxiosError } from "axios";
 import * as FormData from "form-data";
@@ -42,6 +49,11 @@ export class AppController {
     private readonly configService: ConfigService,
     private readonly httpService: HttpService,
   ) {}
+
+  @Get("health")
+  async health() {
+    return "health";
+  }
 
   @ApiTags("Auth")
   @ApiBearerAuth()
@@ -466,6 +478,462 @@ export class AppController {
           `${this.configService.get<string>(
             "ATTRIBUTE_HTTP_SERVICE_URL",
           )}/attribute/${id}`,
+          { headers: { Authorization: token } },
+        )
+        .pipe(
+          map((response) => response.data),
+          catchError((error: AxiosError) => {
+            throw error.response.data;
+          }),
+        );
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  @ApiTags("Product")
+  @ApiBearerAuth()
+  @ApiConsumes("multipart/form-data")
+  @Roles(Role.ADMIN, Role.BUSINESS)
+  @UseGuards(AuthGuard)
+  @UseInterceptors(FilesInterceptor("images"))
+  @Post("product")
+  async createProduct(
+    @Token() token: string,
+    @Body() createProductDto: CreateProductDto,
+    @UploadedFiles() images: Array<Express.Multer.File>,
+  ) {
+    const formData = new FormData();
+
+    formData.append("name", createProductDto.name);
+    formData.append("description", createProductDto.description);
+    formData.append("categoryId", createProductDto.categoryId);
+    createProductDto.attributes &&
+      formData.append("attributes", createProductDto.attributes);
+    createProductDto.prices &&
+      formData.append("prices", createProductDto.prices);
+
+    images.forEach((image) => {
+      formData.append("images", Buffer.from(image.buffer), image.originalname);
+    });
+
+    try {
+      return this.httpService
+        .post(
+          `${this.configService.get<string>(
+            "PRODUCT_HTTP_SERVICE_URL",
+          )}/product`,
+          formData,
+          {
+            headers: { ...formData.getHeaders(), Authorization: token },
+          },
+        )
+        .pipe(
+          map((response) => response.data),
+          catchError((error: AxiosError) => {
+            throw error.response.data;
+          }),
+        );
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  @ApiTags("Product")
+  @Get("product")
+  async getProducts() {
+    try {
+      return this.httpService
+        .get(
+          `${this.configService.get<string>(
+            "PRODUCT_HTTP_SERVICE_URL",
+          )}/product`,
+        )
+        .pipe(
+          map((response) => response.data),
+          catchError((error: AxiosError) => {
+            throw error.response.data;
+          }),
+        );
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  @ApiTags("Product")
+  @Get("product/:id")
+  async getProduct(@Param("id") id: string) {
+    try {
+      return this.httpService
+        .get(
+          `${this.configService.get<string>(
+            "PRODUCT_HTTP_SERVICE_URL",
+          )}/product/${id}`,
+        )
+        .pipe(
+          map((response) => response.data),
+          catchError((error: AxiosError) => {
+            throw error.response.data;
+          }),
+        );
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  @ApiTags("Product")
+  @ApiBearerAuth()
+  @ApiConsumes("multipart/form-data")
+  @Roles(Role.ADMIN, Role.BUSINESS)
+  @UseGuards(AuthGuard)
+  @UseInterceptors(FilesInterceptor("images"))
+  @Patch("product/:id")
+  async updateProduct(
+    @Token() token: string,
+    @Param("id") id: string,
+    @Body() updateProductDto: UpdateProductDto,
+    @UploadedFiles() images: Array<Express.Multer.File>,
+  ) {
+    const formData = new FormData();
+
+    updateProductDto.name && formData.append("name", updateProductDto.name);
+    updateProductDto.description &&
+      formData.append("description", updateProductDto.description);
+    updateProductDto.categoryId &&
+      formData.append("categoryId", updateProductDto.categoryId);
+    updateProductDto.attributes &&
+      formData.append("attributes", updateProductDto.attributes);
+    updateProductDto.prices &&
+      formData.append("prices", updateProductDto.prices);
+
+    images.forEach((image) => {
+      formData.append("images", Buffer.from(image.buffer), image.originalname);
+    });
+
+    try {
+      return this.httpService
+        .patch(
+          `${this.configService.get<string>(
+            "PRODUCT_HTTP_SERVICE_URL",
+          )}/product/${id}`,
+          formData,
+          {
+            headers: { ...formData.getHeaders(), Authorization: token },
+          },
+        )
+        .pipe(
+          map((response) => response.data),
+          catchError((error: AxiosError) => {
+            throw error.response.data;
+          }),
+        );
+    } catch (error) {
+      throw error;
+    }
+  }
+  @ApiTags("Product")
+  @ApiBearerAuth()
+  @Roles(Role.ADMIN, Role.BUSINESS)
+  @UseGuards(AuthGuard)
+  @Delete("product/:id")
+  async deleteProduct(@Token() token: string, @Param("id") id: string) {
+    try {
+      return this.httpService
+        .delete(
+          `${this.configService.get<string>(
+            "PRODUCT_HTTP_SERVICE_URL",
+          )}/product/${id}`,
+          {
+            headers: {
+              Authorization: token,
+            },
+          },
+        )
+        .pipe(
+          map((response) => response.data),
+          catchError((error: AxiosError) => {
+            throw error.response.data;
+          }),
+        );
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  @ApiTags("Discount")
+  @ApiBearerAuth()
+  @Roles(Role.ADMIN)
+  @UseGuards(AuthGuard)
+  @Post("discount")
+  async createDiscount(
+    @Token() token: string,
+    @Body() createDiscountDto: CreateDiscountDto,
+  ) {
+    try {
+      return this.httpService
+        .post(
+          `${this.configService.get<string>(
+            "DISCOUNT_HTTP_SERVICE_URL",
+          )}/discount`,
+          createDiscountDto,
+          {
+            headers: {
+              Authorization: token,
+            },
+          },
+        )
+        .pipe(
+          map((response) => response.data),
+          catchError((error: AxiosError) => {
+            throw error.response.data;
+          }),
+        );
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  @ApiTags("Discount")
+  @ApiBearerAuth()
+  @Roles(Role.ADMIN)
+  @UseGuards(AuthGuard)
+  @Get("discount")
+  async getDiscounts(@Token() token: string) {
+    try {
+      return this.httpService
+        .get(
+          `${this.configService.get<string>(
+            "DISCOUNT_HTTP_SERVICE_URL",
+          )}/discount`,
+          {
+            headers: {
+              Authorization: token,
+            },
+          },
+        )
+        .pipe(
+          map((response) => response.data),
+          catchError((error: AxiosError) => {
+            throw error.response.data;
+          }),
+        );
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  @ApiTags("Discount")
+  @ApiBearerAuth()
+  @Roles(Role.ADMIN)
+  @UseGuards(AuthGuard)
+  @Get("discount/:id")
+  async getDiscount(@Token() token: string, @Param("id") id: string) {
+    try {
+      return this.httpService
+        .get(
+          `${this.configService.get<string>(
+            "DISCOUNT_HTTP_SERVICE_URL",
+          )}/discount/${id}`,
+          {
+            headers: {
+              Authorization: token,
+            },
+          },
+        )
+        .pipe(
+          map((response) => response.data),
+          catchError((error: AxiosError) => {
+            throw error.response.data;
+          }),
+        );
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  @ApiTags("Discount")
+  @ApiBearerAuth()
+  @Roles(Role.ADMIN)
+  @UseGuards(AuthGuard)
+  @Patch("discount/:id")
+  async updateDiscount(
+    @Token() token: string,
+    @Param("id") id: string,
+    @Body() updateDiscountDto: UpdateDiscountDto,
+  ) {
+    try {
+      return this.httpService
+        .patch(
+          `${this.configService.get<string>(
+            "DISCOUNT_HTTP_SERVICE_URL",
+          )}/discount/${id}`,
+          updateDiscountDto,
+          {
+            headers: {
+              Authorization: token,
+            },
+          },
+        )
+        .pipe(
+          map((response) => response.data),
+          catchError((error: AxiosError) => {
+            throw error.response.data;
+          }),
+        );
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  @ApiTags("Discount")
+  @ApiBearerAuth()
+  @Roles(Role.ADMIN)
+  @UseGuards(AuthGuard)
+  @Delete("discount/:id")
+  async deleteDiscount(@Token() token: string, @Param("id") id: string) {
+    try {
+      return this.httpService
+        .delete(
+          `${this.configService.get<string>(
+            "DISCOUNT_HTTP_SERVICE_URL",
+          )}/discount/${id}`,
+          {
+            headers: {
+              Authorization: token,
+            },
+          },
+        )
+        .pipe(
+          map((response) => response.data),
+          catchError((error: AxiosError) => {
+            throw error.response.data;
+          }),
+        );
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  @ApiTags("Cart")
+  @ApiBearerAuth()
+  @Roles(Role.CUSTOMER)
+  @UseGuards(AuthGuard)
+  @Get("cart")
+  async getCart(@Token() token: string) {
+    try {
+      return this.httpService
+        .get(
+          `${this.configService.get<string>("CART_HTTP_SERVICE_URL")}/cart`,
+          { headers: { Authorization: token } },
+        )
+        .pipe(
+          map((response) => response.data),
+          catchError((error: AxiosError) => {
+            throw error.response.data;
+          }),
+        );
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  @ApiTags("Cart")
+  @ApiBearerAuth()
+  @Roles(Role.CUSTOMER)
+  @UseGuards(AuthGuard)
+  @Post("cart")
+  async addToCart(
+    @Token() token: string,
+    @Body() createCartDto: CreateCartDto,
+  ) {
+    try {
+      return this.httpService
+        .post(
+          `${this.configService.get<string>("CART_HTTP_SERVICE_URL")}/cart`,
+          createCartDto,
+          { headers: { Authorization: token } },
+        )
+        .pipe(
+          map((response) => response.data),
+          catchError((error: AxiosError) => {
+            throw error.response.data;
+          }),
+        );
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  @ApiTags("Cart")
+  @ApiBearerAuth()
+  @ApiQuery({ name: "discountCode", required: false })
+  @Roles(Role.CUSTOMER)
+  @UseGuards(AuthGuard)
+  @Get("cart/total")
+  async getCartTotal(
+    @Token() token: string,
+    @Query("discountCode") discountCode?: string,
+  ) {
+    try {
+      return this.httpService
+        .get(
+          `${this.configService.get<string>(
+            "CART_HTTP_SERVICE_URL",
+          )}/cart/total`,
+          {
+            headers: { Authorization: token },
+            params: {
+              discountCode,
+            },
+          },
+        )
+        .pipe(
+          map((response) => response.data),
+          catchError((error: AxiosError) => {
+            throw error.response.data;
+          }),
+        );
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  @ApiTags("Cart")
+  @ApiBearerAuth()
+  @Roles(Role.CUSTOMER)
+  @UseGuards(AuthGuard)
+  @Post("cart/checkout")
+  async checkout(@Token() token: string, @Body() checkoutDto: CheckoutDto) {
+    try {
+      return this.httpService
+        .post(
+          `${this.configService.get<string>(
+            "CART_HTTP_SERVICE_URL",
+          )}/cart/checkout`,
+          checkoutDto,
+          { headers: { Authorization: token } },
+        )
+        .pipe(
+          map((response) => response.data),
+          catchError((error: AxiosError) => {
+            throw error.response.data;
+          }),
+        );
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  @ApiTags("Order")
+  @ApiBearerAuth()
+  @Roles(Role.ADMIN)
+  @UseGuards(AuthGuard)
+  @Get("order")
+  async findMany(@Token() token: string) {
+    try {
+      return this.httpService
+        .get(
+          `${this.configService.get<string>("ORDER_HTTP_SERVICE_URL")}/order`,
           { headers: { Authorization: token } },
         )
         .pipe(

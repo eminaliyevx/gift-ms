@@ -4,85 +4,126 @@ services:
     image: postgres:latest
     ports:
       - "5432:5432"
-    volumes:
-      - /data/postgres:/data/postgres
     env_file:
-      - .env
+      - .env.production
 
   auth:
     build:
       context: .
       dockerfile: ./apps/auth/Dockerfile
-      target: development
-    command: pnpm run start:dev auth
+      target: production
     env_file:
-      - ./apps/auth/.env
+      - .env.production
     ports:
       - "3001:3001"
-    volumes:
-      - .:/usr/src/app
+      - "9001:9001"
 
   customer:
     build:
       context: .
       dockerfile: ./apps/customer/Dockerfile
-      target: development
-    command: pnpm run start:dev customer
+      target: production
     env_file:
-      - ./apps/customer/.env
+      - .env.production
     ports:
       - "3002:3002"
-    volumes:
-      - .:/usr/src/app
 
   business:
     build:
       context: .
       dockerfile: ./apps/business/Dockerfile
-      target: development
-    command: pnpm run start:dev business
+      target: production
     env_file:
-      - ./apps/business/.env
+      - .env.production
     ports:
       - "3003:3003"
-    volumes:
-      - .:/usr/src/app
 
   category:
     build:
       context: .
       dockerfile: ./apps/category/Dockerfile
-      target: development
-    command: pnpm run start:dev category
+      target: production
     env_file:
-      - ./apps/category/.env
+      - .env.production
     ports:
       - "3004:3004"
-    volumes:
-      - .:/usr/src/app
 
   attribute:
     build:
       context: .
       dockerfile: ./apps/attribute/Dockerfile
-      target: development
-    command: pnpm run start:dev attribute
+      target: production
     env_file:
-      - ./apps/attribute/.env
+      - .env.production
     ports:
       - "3005:3005"
-    volumes:
-      - .:/usr/src/app
+
+  discount:
+    build:
+      context: .
+      dockerfile: ./apps/discount/Dockerfile
+      target: production
+    env_file:
+      - .env.production
+    ports:
+      - "3006:3006"
+
+  product:
+    build:
+      context: .
+      dockerfile: ./apps/product/Dockerfile
+      target: production
+    env_file:
+      - .env.production
+    ports:
+      - "3007:3007"
+
+  order:
+    build:
+      context: .
+      dockerfile: ./apps/order/Dockerfile
+      target: production
+    env_file:
+      - .env.production
+    ports:
+      - "3008:3008"
+
+  cart:
+    build:
+      context: .
+      dockerfile: ./apps/cart/Dockerfile
+      target: production
+    env_file:
+      - .env.production
+    ports:
+      - "3009:3009"
+
+  mail:
+    build:
+      context: .
+      dockerfile: ./apps/mail/Dockerfile
+      target: production
+    env_file:
+      - .env.production
+    ports:
+      - "9010:9010"
+
+  payment:
+    build:
+      context: .
+      dockerfile: ./apps/payment/Dockerfile
+      target: production
+    env_file:
+      - .env.production
+    ports:
+      - "9011:9011"
 
   api:
     build:
       context: .
       dockerfile: ./apps/api/Dockerfile
-      target: development
-    command: pnpm run start:dev api
+      target: production
     env_file:
-      - ./apps/api/.env
+      - .env.production
     ports:
-      - "80:80"
-    volumes:
-      - .:/usr/src/app
+      - "3000:3000"

@@ -8,7 +8,6 @@ import { BusinessController } from "./business.controller";
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: "./apps/business/.env",
     }),
     ClientsModule.registerAsync([
       {
@@ -16,7 +15,7 @@ import { BusinessController } from "./business.controller";
         useFactory: (configService: ConfigService) => ({
           transport: Transport.TCP,
           options: {
-            host: configService.get("AUTH_TCP_SERVICE_HOST"),
+            host: "auth",
             port: configService.get("AUTH_TCP_SERVICE_PORT"),
           },
         }),

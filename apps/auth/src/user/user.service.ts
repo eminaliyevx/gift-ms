@@ -7,12 +7,10 @@ export class UserService {
   constructor(private readonly prismaService: PrismaService) {}
 
   async create(createUserDto: CreateUserDto) {
-    const password = hash(createUserDto.password);
-
     return this.prismaService.user.create({
       data: {
         ...createUserDto,
-        password,
+        password: hash(createUserDto.password),
       },
       select: {
         id: true,

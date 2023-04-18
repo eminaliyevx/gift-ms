@@ -7,7 +7,6 @@ import { AppController } from "./app.controller";
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: "./apps/api/.env",
     }),
     HttpModule,
   ],

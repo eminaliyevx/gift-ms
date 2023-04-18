@@ -8,7 +8,6 @@ import { AttributeController } from "./attribute.controller";
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: "./apps/attribute/.env",
     }),
     HttpModule,
   ],

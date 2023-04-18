@@ -94,7 +94,7 @@ export class AuthService {
         );
       }
 
-      const user = await this.userService.update({
+      return this.userService.update({
         data: {
           email: updateUserDto.email,
           phone: updateUserDto.phone,
@@ -114,15 +114,13 @@ export class AuthService {
           updatedAt: true,
         },
       });
-
-      return user;
     } catch {
       throw new BadRequestException();
     }
   }
 
-  async sendConfirmationEmail(id: number) {
-    const account = await this.getAccount(id);
+  async sendConfirmationEmail(userId: number) {
+    const account = await this.getAccount(userId);
 
     account.confirmed = true;
 
@@ -143,9 +141,9 @@ export class AuthService {
     const accessToken = Buffer.from(hash, "hex").toString("utf8");
 
     try {
-      const account = (await this.jwtService.verifyAsync(
+      const account = await this.jwtService.verifyAsync<AccountWithoutPassword>(
         accessToken,
-      )) as AccountWithoutPassword;
+      );
 
       if (account) {
         // eslint-disable-next-line @typescript-eslint/no-unused-vars

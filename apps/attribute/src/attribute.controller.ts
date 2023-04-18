@@ -22,6 +22,11 @@ import { Role } from "@prisma/client";
 export class AttributeController {
   constructor(private readonly prismaService: PrismaService) {}
 
+  @Get("health")
+  async health() {
+    return "attribute";
+  }
+
   @Roles(Role.ADMIN)
   @UseGuards(AuthGuard)
   @Post()

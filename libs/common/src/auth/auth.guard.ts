@@ -49,11 +49,15 @@ export class AuthGuard implements CanActivate {
       request["user"] = user;
       request["token"] = request.headers.authorization;
 
-      if (!roles) {
-        return true;
-      }
+      if (user) {
+        if (!roles) {
+          return true;
+        }
 
-      return roles.some((role) => user.role === role);
+        return roles.some((role) => user.role === role);
+      } else {
+        return false;
+      }
     } catch (error) {
       throw error;
     }

@@ -28,6 +28,11 @@ import { LocalAuthGuard } from "./guards/local-auth.guard";
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  @Get("health")
+  async health() {
+    return "auth";
+  }
+
   @Roles(Role.ADMIN)
   @UseGuards(JwtAuthGuard)
   @Post("register")

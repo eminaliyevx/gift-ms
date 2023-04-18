@@ -21,13 +21,13 @@ async function bootstrap() {
     transport: Transport.TCP,
     options: {
       host: "0.0.0.0",
-      port: configService.get("TCP_PORT"),
+      port: configService.get("AUTH_TCP_SERVICE_PORT"),
     },
   });
 
   await prismaService.enableShutdownHooks(app);
 
   await app.startAllMicroservices();
-  await app.listen(configService.get<number>("HTTP_PORT"));
+  await app.listen(configService.get<number>("AUTH_HTTP_SERVICE_PORT"));
 }
 bootstrap();

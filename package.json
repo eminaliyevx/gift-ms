@@ -10,11 +10,9 @@
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/apps/gift-ms/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:cov": "jest --coverage",
-    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./apps/gift-ms/test/jest-e2e.json"
+    "wait": "wait-on http://localhost:5001/auth/health http://localhost:5002/customer/health http://localhost:5003/business/health http://localhost:5004/category/health http://localhost:5005/attribute/health http://localhost:5006/discount/health http://localhost:5009/cart/health http://localhost:5000/api/health",
+    "reset:db": "docker compose -f docker-compose-test.yml up -d postgres && node -e \"setTimeout(() => {}, 1000)\" && dotenv -e .env.test -- prisma migrate reset --force",
+    "test": "time -p sh -c 'pnpm reset:db && docker compose -f docker-compose-test.yml up -d && pnpm wait && jest && npm run --prefix ../gift/apps/frontend test && docker compose -f docker-compose-test.yml down'"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.312.0",
@@ -30,7 +28,7 @@
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
-    "form-data": "^4.0.0",
+    "dotenv-cli": "^7.2.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.8.0"
   },
@@ -61,7 +59,8 @@
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
     "tsconfig-paths": "4.2.0",
-    "typescript": "^5.0.4"
+    "typescript": "^5.0.4",
+    "wait-on": "^7.0.1"
   },
   "jest": {
     "moduleFileExtensions": [

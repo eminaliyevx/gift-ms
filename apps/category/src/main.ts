@@ -18,6 +18,6 @@ async function bootstrap() {
 
   await prismaService.enableShutdownHooks(app);
 
-  await app.listen(configService.get<number>("HTTP_PORT"));
+  await app.listen(configService.get<number>("CATEGORY_HTTP_SERVICE_PORT"));
 }
 bootstrap();

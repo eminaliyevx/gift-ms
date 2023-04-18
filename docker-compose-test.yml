@@ -1,0 +1,97 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5433:5432"
+    env_file:
+      - .env.test
+
+  auth:
+    build:
+      context: .
+      dockerfile: ./apps/auth/Dockerfile
+      target: test
+    command: pnpm start auth
+    env_file:
+      - .env.test
+    ports:
+      - "5001:5001"
+      - "15001:15001"
+
+  customer:
+    build:
+      context: .
+      dockerfile: ./apps/customer/Dockerfile
+      target: test
+    command: pnpm start customer
+    env_file:
+      - .env.test
+    ports:
+      - "5002:5002"
+
+  business:
+    build:
+      context: .
+      dockerfile: ./apps/business/Dockerfile
+      target: test
+    command: pnpm start business
+    env_file:
+      - .env.test
+    ports:
+      - "5003:5003"
+
+  category:
+    build:
+      context: .
+      dockerfile: ./apps/category/Dockerfile
+      target: test
+    command: pnpm start category
+    env_file:
+      - .env.test
+    ports:
+      - "5004:5004"
+
+  attribute:
+    build:
+      context: .
+      dockerfile: ./apps/attribute/Dockerfile
+      target: test
+    command: pnpm start attribute
+    env_file:
+      - .env.test
+    ports:
+      - "5005:5005"
+
+  discount:
+    build:
+      context: .
+      dockerfile: ./apps/discount/Dockerfile
+      target: test
+    command: pnpm start discount
+    env_file:
+      - .env.test
+    ports:
+      - "5006:5006"
+
+  cart:
+    build:
+      context: .
+      dockerfile: ./apps/cart/Dockerfile
+      target: test
+    command: pnpm start cart
+    env_file:
+      - .env.test
+    ports:
+      - "5009:5009"
+
+  api:
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+      target: test
+    command: pnpm start api
+    env_file:
+      - .env.test
+    ports:
+      - "5000:5000"

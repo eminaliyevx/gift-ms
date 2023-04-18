@@ -8,7 +8,6 @@ import { MailService } from "./mail.service";
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: "./apps/mail/.env",
     }),
     MailerModule.forRootAsync({
       useFactory: (configService: ConfigService) => ({

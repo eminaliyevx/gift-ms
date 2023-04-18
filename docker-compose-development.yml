@@ -4,7 +4,162 @@ services:
     image: postgres:latest
     ports:
       - "5434:5432"
-    volumes:
-      - /data/postgres:/data/postgres
     env_file:
-      - .env
+      - .env.development
+
+  auth:
+    build:
+      context: .
+      dockerfile: ./apps/auth/Dockerfile
+      target: development
+    command: pnpm start:dev auth
+    env_file:
+      - .env.development
+    ports:
+      - "3001:3001"
+      - "9001:9001"
+    volumes:
+      - .:/usr/src/app
+
+  customer:
+    build:
+      context: .
+      dockerfile: ./apps/customer/Dockerfile
+      target: development
+    command: pnpm start:dev customer
+    env_file:
+      - .env.development
+    ports:
+      - "3002:3002"
+    volumes:
+      - .:/usr/src/app
+
+  business:
+    build:
+      context: .
+      dockerfile: ./apps/business/Dockerfile
+      target: development
+    command: pnpm start:dev business
+    env_file:
+      - .env.development
+    ports:
+      - "3003:3003"
+    volumes:
+      - .:/usr/src/app
+
+  category:
+    build:
+      context: .
+      dockerfile: ./apps/category/Dockerfile
+      target: development
+    command: pnpm start:dev category
+    env_file:
+      - .env.development
+    ports:
+      - "3004:3004"
+    volumes:
+      - .:/usr/src/app
+
+  attribute:
+    build:
+      context: .
+      dockerfile: ./apps/attribute/Dockerfile
+      target: development
+    command: pnpm start:dev attribute
+    env_file:
+      - .env.development
+    ports:
+      - "3005:3005"
+    volumes:
+      - .:/usr/src/app
+
+  discount:
+    build:
+      context: .
+      dockerfile: ./apps/discount/Dockerfile
+      target: development
+    command: pnpm start:dev discount
+    env_file:
+      - .env.development
+    ports:
+      - "3006:3006"
+    volumes:
+      - .:/usr/src/app
+
+  product:
+    build:
+      context: .
+      dockerfile: ./apps/product/Dockerfile
+      target: development
+    command: pnpm start:dev product
+    env_file:
+      - .env.development
+    ports:
+      - "3007:3007"
+    volumes:
+      - .:/usr/src/app
+
+  order:
+    build:
+      context: .
+      dockerfile: ./apps/order/Dockerfile
+      target: development
+    command: pnpm start:dev order
+    env_file:
+      - .env.development
+    ports:
+      - "3008:3008"
+    volumes:
+      - .:/usr/src/app
+
+  cart:
+    build:
+      context: .
+      dockerfile: ./apps/cart/Dockerfile
+      target: development
+    command: pnpm start:dev cart
+    env_file:
+      - .env.development
+    ports:
+      - "3009:3009"
+    volumes:
+      - .:/usr/src/app
+
+  mail:
+    build:
+      context: .
+      dockerfile: ./apps/mail/Dockerfile
+      target: development
+    command: pnpm start:dev mail
+    env_file:
+      - .env.development
+    ports:
+      - "9010:9010"
+    volumes:
+      - .:/usr/src/app
+
+  payment:
+    build:
+      context: .
+      dockerfile: ./apps/payment/Dockerfile
+      target: development
+    command: pnpm start:dev payment
+    env_file:
+      - .env.development
+    ports:
+      - "9011:9011"
+    volumes:
+      - .:/usr/src/app
+
+  api:
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+      target: development
+    command: pnpm start:dev api
+    env_file:
+      - .env.development
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app

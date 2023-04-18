@@ -1,5 +1,5 @@
 import { CreateBusinessDto, PrismaService, hash } from "@app/common";
-import { Body, Controller, Inject, Post } from "@nestjs/common";
+import { Body, Controller, Get, Inject, Post } from "@nestjs/common";
 import { ClientProxy } from "@nestjs/microservices";
 import { Role } from "@prisma/client";
 
@@ -9,6 +9,11 @@ export class BusinessController {
     private readonly prismaService: PrismaService,
     @Inject("auth") private readonly authService: ClientProxy,
   ) {}
+
+  @Get("health")
+  async health() {
+    return "business";
+  }
 
   @Post("register")
   async register(

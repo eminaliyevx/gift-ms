@@ -15,7 +15,6 @@ import { UserService } from "./user/user.service";
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: "./apps/auth/.env",
     }),
     PassportModule,
     JwtModule.registerAsync({
@@ -32,7 +31,7 @@ import { UserService } from "./user/user.service";
         useFactory: (configService: ConfigService) => ({
           transport: Transport.TCP,
           options: {
-            host: configService.get("MAIL_TCP_SERVICE_HOST"),
+            host: "mail",
             port: configService.get("MAIL_TCP_SERVICE_PORT"),
           },
         }),

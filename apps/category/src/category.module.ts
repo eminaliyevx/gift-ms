@@ -8,7 +8,6 @@ import { CategoryController } from "./category.controller";
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: "./apps/category/.env",
     }),
     HttpModule,
   ],

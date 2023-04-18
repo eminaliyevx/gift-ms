@@ -22,6 +22,11 @@ import { Role } from "@prisma/client";
 export class CategoryController {
   constructor(private readonly prismaService: PrismaService) {}
 
+  @Get("health")
+  async health() {
+    return "category";
+  }
+
   @Roles(Role.ADMIN)
   @UseGuards(AuthGuard)
   @Post()
