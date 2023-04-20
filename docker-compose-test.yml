@@ -74,6 +74,17 @@ services:
     ports:
       - "5006:5006"
 
+  product:
+    build:
+      context: .
+      dockerfile: ./apps/product/Dockerfile
+      target: test
+    command: pnpm start product
+    env_file:
+      - .env.test
+    ports:
+      - "5007:5007"
+
   cart:
     build:
       context: .
@@ -84,6 +95,17 @@ services:
       - .env.test
     ports:
       - "5009:5009"
+
+  payment:
+    build:
+      context: .
+      dockerfile: ./apps/payment/Dockerfile
+      target: test
+    command: pnpm start payment
+    env_file:
+      - .env.test
+    ports:
+      - "15011:15011"
 
   api:
     build:

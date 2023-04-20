@@ -18,6 +18,24 @@ RUN pnpm exec prisma generate
 
 RUN pnpm run build payment
 
+FROM node:18-alpine AS test
+
+WORKDIR /usr/src/app
+
+COPY package.json ./
+COPY pnpm-lock.yaml ./
+COPY tsconfig.json tsconfig.json
+COPY nest-cli.json nest-cli.json
+COPY apps/payment apps/payment
+COPY libs libs
+COPY prisma prisma
+
+RUN npm install -g pnpm
+
+RUN pnpm install -r 
+
+RUN pnpm exec prisma generate
+
 FROM node:18-alpine AS production
 
 ARG NODE_ENV=production

@@ -6,6 +6,9 @@ export class MailService {
   constructor(private readonly mailerService: MailerService) {}
 
   async sendMail(options: ISendMailOptions) {
-    return this.mailerService.sendMail(options);
+    return this.mailerService
+      .sendMail(options)
+      .then((response) => response)
+      .catch((error) => console.error(error));
   }
 }

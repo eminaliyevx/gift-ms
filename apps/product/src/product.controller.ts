@@ -39,6 +39,11 @@ export class ProductController {
     private readonly s3Service: S3Service,
   ) {}
 
+  @Get("health")
+  async health() {
+    return "product";
+  }
+
   @Roles(Role.ADMIN, Role.BUSINESS)
   @UseGuards(AuthGuard)
   @UseInterceptors(FilesInterceptor("images"))

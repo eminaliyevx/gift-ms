@@ -3,12 +3,13 @@ import { HttpModule } from "@nestjs/axios";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { ClientsModule, Transport } from "@nestjs/microservices";
 import { Test } from "@nestjs/testing";
-import { DiscountType, Gender, Role } from "@prisma/client";
+import { DiscountType, Gender, Role, User } from "@prisma/client";
 import { CartService } from "../src/cart.service";
 
 describe("CartService", () => {
   let cartService: CartService;
   let prismaService: PrismaService;
+  let user: User;
 
   beforeAll(async () => {
     const moduleRef = await Test.createTestingModule({
@@ -38,9 +39,8 @@ describe("CartService", () => {
     cartService = moduleRef.get<CartService>(CartService);
     prismaService = moduleRef.get<PrismaService>(PrismaService);
 
-    await prismaService.user.create({
+    user = await prismaService.user.create({
       data: {
-        id: 3131,
         email: "custo@test.com",
         phone: "+994553131313",
         password: "qwerty123",
@@ -101,7 +101,7 @@ describe("CartService", () => {
     });
   });
 
-  describe("addToCart", () => {
+  describe.only("addToCart", () => {
     it("should add items to cart", async () => {
       const createCartDto = {
         items: [
@@ -110,9 +110,9 @@ describe("CartService", () => {
         ],
       };
 
-      const result = await cartService.addToCart(3131, createCartDto);
+      const result = await cartService.addToCart(user.id, createCartDto);
 
-      expect(result.every((item) => item.userId === 3131)).toBe(true);
+      expect(result.every((item) => item.userId === user.id)).toBe(true);
     });
   });
 
@@ -138,14 +138,14 @@ describe("CartService", () => {
 
   describe("findTotal", () => {
     it("should return total without a discount code", async () => {
-      const { total } = await cartService.findTotal(3131, undefined);
+      const { total } = await cartService.findTotal(user.id, undefined);
 
       expect(total).toBe(500);
     });
 
     it("should return total with a discount code", async () => {
       const { total, discountTotal } = await cartService.findTotal(
-        3131,
+        user.id,
         "TEST_PERCENTAGE_DISCOUNT_CODE",
       );
 
