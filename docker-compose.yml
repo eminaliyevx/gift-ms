@@ -2,6 +2,8 @@ version: "3.8"
 services:
   postgres:
     image: postgres:latest
+    volumes:
+      - pgdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
     env_file:
@@ -17,6 +19,9 @@ services:
     ports:
       - "3001:3001"
       - "9001:9001"
+    depends_on:
+      - postgres
+      - mail
 
   customer:
     build:
@@ -27,6 +32,8 @@ services:
       - .env.production
     ports:
       - "3002:3002"
+    depends_on:
+      - auth
 
   business:
     build:
@@ -37,6 +44,8 @@ services:
       - .env.production
     ports:
       - "3003:3003"
+    depends_on:
+      - auth
 
   category:
     build:
@@ -47,6 +56,8 @@ services:
       - .env.production
     ports:
       - "3004:3004"
+    depends_on:
+      - postgres
 
   attribute:
     build:
@@ -57,6 +68,8 @@ services:
       - .env.production
     ports:
       - "3005:3005"
+    depends_on:
+      - postgres
 
   discount:
     build:
@@ -67,6 +80,8 @@ services:
       - .env.production
     ports:
       - "3006:3006"
+    depends_on:
+      - postgres
 
   product:
     build:
@@ -77,6 +92,8 @@ services:
       - .env.production
     ports:
       - "3007:3007"
+    depends_on:
+      - postgres
 
   order:
     build:
@@ -87,6 +104,8 @@ services:
       - .env.production
     ports:
       - "3008:3008"
+    depends_on:
+      - postgres
 
   cart:
     build:
@@ -97,6 +116,9 @@ services:
       - .env.production
     ports:
       - "3009:3009"
+    depends_on:
+      - payment
+      - discount
 
   mail:
     build:
@@ -117,13 +139,32 @@ services:
       - .env.production
     ports:
       - "9011:9011"
+    depends_on:
+      - mail
 
   api:
     build:
       context: .
       dockerfile: ./apps/api/Dockerfile
       target: production
+    command: pnpm start:prod
     env_file:
       - .env.production
     ports:
       - "3000:3000"
+    depends_on:
+      - postgres
+      - auth
+      - customer
+      - business
+      - category
+      - attribute
+      - discount
+      - product
+      - order
+      - cart
+      - mail
+      - payment
+
+volumes:
+  pgdata:

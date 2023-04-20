@@ -12,7 +12,7 @@ COPY prisma prisma
 
 RUN npm install -g pnpm
 
-RUN pnpm install -r 
+RUN pnpm install 
 
 RUN pnpm exec prisma generate
 
@@ -32,7 +32,7 @@ COPY prisma prisma
 
 RUN npm install -g pnpm
 
-RUN pnpm install -r 
+RUN pnpm install 
 
 RUN pnpm exec prisma generate
 
@@ -43,10 +43,12 @@ ENV NODE_ENV=${NODE_ENV}
 
 WORKDIR /usr/src/app
 
+RUN npm install -g pnpm
+
 COPY package.json ./
 COPY pnpm-lock.yaml ./
+COPY prisma prisma
 
 COPY --from=development /usr/src/app/node_modules ./node_modules
 COPY --from=development /usr/src/app/dist ./dist
-
-CMD ["node", "dist/apps/api/main"]
+COPY --from=development /usr/src/app/apps/api/public ./public
