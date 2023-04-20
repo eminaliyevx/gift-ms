@@ -11,7 +11,7 @@ COPY libs libs
 
 RUN npm install -g pnpm
 
-RUN pnpm install -r 
+RUN pnpm install 
 
 RUN pnpm run build mail
 

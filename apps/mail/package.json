@@ -1,8 +1,0 @@
-{
-  "name": "mail",
-  "version": "1.0.0",
-  "main": "index.js",
-  "dependencies": {
-    "@nestjs-modules/mailer": "^1.8.1"
-  }
-}
