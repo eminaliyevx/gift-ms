@@ -12,7 +12,7 @@ COPY prisma prisma
 
 RUN npm install -g pnpm
 
-RUN pnpm install -r
+RUN pnpm install
 
 RUN pnpm exec prisma generate
 
@@ -32,7 +32,7 @@ COPY prisma prisma
 
 RUN npm install -g pnpm
 
-RUN pnpm install -r 
+RUN pnpm install 
 
 RUN pnpm exec prisma generate
 

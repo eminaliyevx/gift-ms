@@ -1,8 +1,0 @@
-{
-  "name": "payment",
-  "version": "1.0.0",
-  "main": "index.js",
-  "dependencies": {
-    "stripe": "^12.1.1"
-  }
-}
