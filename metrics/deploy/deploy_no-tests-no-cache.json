@@ -1,0 +1,802 @@
+[
+  {
+    "time": 387.16889945000037,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.55415130653424
+  },
+  {
+    "time": 387.1599832809996,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.29949317014143
+  },
+  {
+    "time": 436.72210531099887,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 36.41881198346713
+  },
+  {
+    "time": 416.3689059260003,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.96690983231116
+  },
+  {
+    "time": 408.5635542070009,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 36.65497668784853
+  },
+  {
+    "time": 394.1233884529993,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.00186011416386
+  },
+  {
+    "time": 430.47886388599875,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.3379434522873
+  },
+  {
+    "time": 394.06677740699797,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 37.056604668079395
+  },
+  {
+    "time": 425.68137403699757,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.941600876627966
+  },
+  {
+    "time": 442.83374854099753,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.747742381165146
+  },
+  {
+    "time": 420.7056057000011,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.00062150197561
+  },
+  {
+    "time": 440.30867087700216,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.99048265730303
+  },
+  {
+    "time": 433.2948431529999,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.80648270149426
+  },
+  {
+    "time": 440.9301679779999,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.9828869316029
+  },
+  {
+    "time": 397.0124256820008,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.811241274815664
+  },
+  {
+    "time": 421.772720040001,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.068091755807096
+  },
+  {
+    "time": 431.17184445000066,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.24444516524791
+  },
+  {
+    "time": 469.063968274001,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.16526884019594
+  },
+  {
+    "time": 497.6483272660002,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.72769295510814
+  },
+  {
+    "time": 471.48925789099934,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.913125128877915
+  },
+  {
+    "time": 476.7221333269998,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.08425371023328
+  },
+  {
+    "time": 467.15499236999824,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.77418378588146
+  },
+  {
+    "time": 469.46312790299953,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.90662817451559
+  },
+  {
+    "time": 462.2659877980016,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.15914165291943
+  },
+  {
+    "time": 544.5636702030004,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.86733705789254
+  },
+  {
+    "time": 492.6908281229995,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.77764125092699
+  },
+  {
+    "time": 464.0669785289988,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.007976763693826
+  },
+  {
+    "time": 474.4134647540003,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.83544728254643
+  },
+  {
+    "time": 476.3922980889976,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.84369840433645
+  },
+  {
+    "time": 525.3804659949988,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.85286385653483
+  },
+  {
+    "time": 552.1217383620032,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.23032618181544
+  },
+  {
+    "time": 661.9469876099973,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.74060724791693
+  },
+  {
+    "time": 574.2028701930009,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.91115762959832
+  },
+  {
+    "time": 574.9737105470002,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.0138780037915
+  },
+  {
+    "time": 562.7118987509999,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.03386841237208
+  },
+  {
+    "time": 613.786205734998,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.1841264542407
+  },
+  {
+    "time": 643.942072172001,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.571726821835476
+  },
+  {
+    "time": 578.6103172219991,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 37.842758534301666
+  },
+  {
+    "time": 603.9679701479971,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.15328480359865
+  },
+  {
+    "time": 359.29832140300005,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.35436832460488
+  },
+  {
+    "time": 379.8199524690006,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.03942422926781
+  },
+  {
+    "time": 390.76470682199954,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.074766890134434
+  },
+  {
+    "time": 436.2761172679998,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.680439168965655
+  },
+  {
+    "time": 370.52600496699847,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.897725848778975
+  },
+  {
+    "time": 387.9918393720016,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 36.25812362248781
+  },
+  {
+    "time": 396.9946222120002,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.402851655583305
+  },
+  {
+    "time": 816.5237810490001,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.045898259473304
+  },
+  {
+    "time": 414.9663732589986,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.844102436419185
+  },
+  {
+    "time": 433.4146252610013,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.199425577704986
+  },
+  {
+    "time": 413.4740703700017,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.782660463556134
+  },
+  {
+    "time": 408.10188780899904,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 36.02545528583471
+  },
+  {
+    "time": 387.4578770309985,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.63395194625331
+  },
+  {
+    "time": 606.330210767001,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.225455918432445
+  },
+  {
+    "time": 424.7817500590011,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 36.84429968458804
+  },
+  {
+    "time": 410.6408444759995,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.732805937959995
+  },
+  {
+    "time": 371.07911786199736,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 32.21478845900868
+  },
+  {
+    "time": 379.0266366770007,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 37.55912407399112
+  },
+  {
+    "time": 790.4321722210012,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 37.91012626926174
+  },
+  {
+    "time": 424.6588479800001,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 37.13120708233365
+  },
+  {
+    "time": 385.62532244299723,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 37.36317459549495
+  },
+  {
+    "time": 420.73513645400106,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.51663920950295
+  },
+  {
+    "time": 599.8390455019995,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.345349633727416
+  },
+  {
+    "time": 438.33515330999717,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.478395434965456
+  },
+  {
+    "time": 417.43702160299944,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.36355160244545
+  },
+  {
+    "time": 838.4784849999994,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.91196446525063
+  },
+  {
+    "time": 435.51508696100115,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.470040563859506
+  },
+  {
+    "time": 447.8301956680007,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.89816048429643
+  },
+  {
+    "time": 850.897594726,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 37.89520729869685
+  },
+  {
+    "time": 463.33921166599913,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.924832624684925
+  },
+  {
+    "time": 427.5988822350018,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.48715119039774
+  },
+  {
+    "time": 801.4945175120012,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.646234716856995
+  },
+  {
+    "time": 446.5256533689983,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.073099272608
+  },
+  {
+    "time": 443.78256083299965,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.07324948931535
+  },
+  {
+    "time": 915.9310553220026,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.38758431601703
+  },
+  {
+    "time": 616.5736224660017,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.66470786943908
+  },
+  {
+    "time": 419.3886574619971,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.21696328269668
+  },
+  {
+    "time": 612.8679194680005,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.40738258765929
+  },
+  {
+    "time": 448.9993224320002,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.52898431495551
+  },
+  {
+    "time": 420.67618872899936,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 36.955616193424234
+  },
+  {
+    "time": 951.0594545029998,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 36.25728856145923
+  },
+  {
+    "time": 453.20982220299913,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.59248523642927
+  },
+  {
+    "time": 546.6984726019986,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.45574057499611
+  },
+  {
+    "time": 453.66564207100123,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.78067383724356
+  },
+  {
+    "time": 430.30252919299903,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.816005486536056
+  },
+  {
+    "time": 457.93036681199817,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.46169391518117
+  },
+  {
+    "time": 412.04707514499876,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 37.950014964539356
+  },
+  {
+    "time": 532.5713091500029,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 37.592507296448495
+  },
+  {
+    "time": 456.9546088130027,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.053850983667466
+  },
+  {
+    "time": 488.0725225540027,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.67812018262517
+  },
+  {
+    "time": 907.6434705479965,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.42461272357739
+  },
+  {
+    "time": 445.4877478449941,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.92466553797952
+  },
+  {
+    "time": 445.46098695299776,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 40.15552195931255
+  },
+  {
+    "time": 821.2129776130021,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.59212782358534
+  },
+  {
+    "time": 452.87208749700335,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 35.407265124905905
+  },
+  {
+    "time": 446.03966031400114,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.803312630845454
+  },
+  {
+    "time": 872.2703246599957,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.481269152468975
+  },
+  {
+    "time": 481.14574541000275,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.52724785167605
+  },
+  {
+    "time": 429.89351579400153,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.98365202792948
+  },
+  {
+    "time": 705.6367782839984,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 38.45832708183146
+  },
+  {
+    "time": 490.8266926429942,
+    "type": "Linux",
+    "arch": "x64",
+    "model": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "speed": 2688,
+    "internetSpeed": 39.33860017791748
+  }
+]
