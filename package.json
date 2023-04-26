@@ -13,10 +13,10 @@
     "reset:db": "docker compose -f docker-compose-test.yml up -d postgres && node -e \"setTimeout(() => {}, 1000)\" && dotenv -e .env.test -- prisma migrate reset --force",
     "test": "pnpm reset:db && docker compose -f docker-compose-test.yml up -d && (npm run --prefix ../gift/apps/frontend dev:test &) && pnpm wait && jest && npm run --prefix ../gift/apps/frontend test && docker compose -f docker-compose-test.yml down && pnpm kill:dev-test",
     "build:frontend": "cd ../gift && npm install && npx prisma generate && cd ./apps/frontend && npx tsc && npx vite build --outDir ../../../gift-ms/apps/api/public --emptyOutDir",
-    "deploy:no-tests-cache": "docker compose build && docker compose up -d",
-    "deploy:no-tests-no-cache": "docker compose build --no-cache && docker compose up -d",
-    "deploy:tests-cache": "pnpm test && docker compose build && docker compose up -d",
-    "deploy:tests-no-cache": "pnpm test && docker compose build --no-cache && docker compose up -d"
+    "deploy:no-tests-cache": "rm -rf ~/.docker && docker compose build && docker compose up -d",
+    "deploy:no-tests-no-cache": "rm -rf ~/.docker && docker compose build --no-cache && docker compose up -d",
+    "deploy:tests-cache": "rm -rf ~/.docker && pnpm test && docker compose build && docker compose up -d",
+    "deploy:tests-no-cache": "rm -rf ~/.docker && pnpm test && docker compose build --no-cache && docker compose up -d"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.312.0",

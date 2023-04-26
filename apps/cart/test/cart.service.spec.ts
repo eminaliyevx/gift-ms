@@ -101,7 +101,7 @@ describe("CartService", () => {
     });
   });
 
-  describe.only("addToCart", () => {
+  describe("addToCart", () => {
     it("should add items to cart", async () => {
       const createCartDto = {
         items: [
