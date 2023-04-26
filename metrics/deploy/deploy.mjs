@@ -73,7 +73,7 @@ function deploy(num) {
     }
 
     const start = performance.now();
-    const child = spawn("npm", ["run", `deploy:${DEPLOY_TYPE}`]);
+    const child = spawn("pnpm", [`deploy:${DEPLOY_TYPE}`]);
 
     let stdout = "";
     let stderr = "";
@@ -84,6 +84,7 @@ function deploy(num) {
 
     child.stderr.on("data", (data) => {
       stderr += data;
+      console.error(data);
     });
 
     child.on("close", (code) => {
