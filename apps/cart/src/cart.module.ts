@@ -18,7 +18,7 @@ import { CartService } from "./cart.service";
         useFactory: (configService: ConfigService) => ({
           transport: Transport.TCP,
           options: {
-            host: "payment",
+            host: configService.get("PAYMENT_TCP_SERVICE_HOST"),
             port: configService.get("PAYMENT_TCP_SERVICE_PORT"),
           },
         }),

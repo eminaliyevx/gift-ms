@@ -6,8 +6,10 @@ services:
       - "5433:5432"
     env_file:
       - .env.test
+    networks:
+      - ms_test
 
-  auth:
+  auth-test:
     build:
       context: .
       dockerfile: ./apps/auth/Dockerfile
@@ -18,8 +20,10 @@ services:
     ports:
       - "5001:5001"
       - "15001:15001"
+    networks:
+      - ms_test
 
-  customer:
+  customer-test:
     build:
       context: .
       dockerfile: ./apps/customer/Dockerfile
@@ -29,8 +33,10 @@ services:
       - .env.test
     ports:
       - "5002:5002"
+    networks:
+      - ms_test
 
-  business:
+  business-test:
     build:
       context: .
       dockerfile: ./apps/business/Dockerfile
@@ -40,8 +46,10 @@ services:
       - .env.test
     ports:
       - "5003:5003"
+    networks:
+      - ms_test
 
-  category:
+  category-test:
     build:
       context: .
       dockerfile: ./apps/category/Dockerfile
@@ -51,8 +59,10 @@ services:
       - .env.test
     ports:
       - "5004:5004"
+    networks:
+      - ms_test
 
-  attribute:
+  attribute-test:
     build:
       context: .
       dockerfile: ./apps/attribute/Dockerfile
@@ -62,8 +72,10 @@ services:
       - .env.test
     ports:
       - "5005:5005"
+    networks:
+      - ms_test
 
-  discount:
+  discount-test:
     build:
       context: .
       dockerfile: ./apps/discount/Dockerfile
@@ -73,8 +85,10 @@ services:
       - .env.test
     ports:
       - "5006:5006"
+    networks:
+      - ms_test
 
-  product:
+  product-test:
     build:
       context: .
       dockerfile: ./apps/product/Dockerfile
@@ -84,8 +98,10 @@ services:
       - .env.test
     ports:
       - "5007:5007"
+    networks:
+      - ms_test
 
-  cart:
+  cart-test:
     build:
       context: .
       dockerfile: ./apps/cart/Dockerfile
@@ -95,8 +111,10 @@ services:
       - .env.test
     ports:
       - "5009:5009"
+    networks:
+      - ms_test
 
-  payment:
+  payment-test:
     build:
       context: .
       dockerfile: ./apps/payment/Dockerfile
@@ -106,8 +124,10 @@ services:
       - .env.test
     ports:
       - "15011:15011"
+    networks:
+      - ms_test
 
-  api:
+  api-test:
     build:
       context: .
       dockerfile: ./apps/api/Dockerfile
@@ -117,3 +137,9 @@ services:
       - .env.test
     ports:
       - "5000:5000"
+    networks:
+      - ms_test
+
+networks:
+  ms_test:
+    driver: bridge
