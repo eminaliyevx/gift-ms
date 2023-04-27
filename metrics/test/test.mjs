@@ -41,6 +41,7 @@ function test(num) {
 
     child.stderr.on("data", (data) => {
       stderr += data;
+      console.error(data);
     });
 
     child.on("close", (code) => {

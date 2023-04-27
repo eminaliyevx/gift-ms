@@ -15,7 +15,7 @@ import { BusinessController } from "./business.controller";
         useFactory: (configService: ConfigService) => ({
           transport: Transport.TCP,
           options: {
-            host: "auth",
+            host: configService.get("AUTH_TCP_SERVICE_HOST"),
             port: configService.get("AUTH_TCP_SERVICE_PORT"),
           },
         }),

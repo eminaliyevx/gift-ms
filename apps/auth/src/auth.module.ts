@@ -31,7 +31,7 @@ import { UserService } from "./user/user.service";
         useFactory: (configService: ConfigService) => ({
           transport: Transport.TCP,
           options: {
-            host: "mail",
+            host: configService.get("MAIL_TCP_SERVICE_HOST"),
             port: configService.get("MAIL_TCP_SERVICE_PORT"),
           },
         }),
