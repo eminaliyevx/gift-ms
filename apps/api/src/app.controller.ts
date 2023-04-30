@@ -24,9 +24,12 @@ import { HttpService } from "@nestjs/axios";
 import {
   Body,
   Controller,
+  DefaultValuePipe,
   Delete,
   Get,
   Param,
+  ParseArrayPipe,
+  ParseIntPipe,
   Patch,
   Post,
   Query,
@@ -540,14 +543,32 @@ export class AppController {
   }
 
   @ApiTags("Product")
+  @ApiQuery({ name: "take", required: false })
+  @ApiQuery({ name: "cursor", required: false })
+  @ApiQuery({ name: "name", required: false })
+  @ApiQuery({ name: "categoryId", required: false })
   @Get("product")
-  async getProducts() {
+  async getProducts(
+    @Query("take", new DefaultValuePipe(8), ParseIntPipe) take: number,
+    @Query("cursor") cursor?: string,
+    @Query("name") name?: string,
+    @Query("categories", new ParseArrayPipe({ items: String, optional: true }))
+    categories?: string[],
+  ) {
     try {
       return this.httpService
         .get(
           `${this.configService.get<string>(
             "PRODUCT_HTTP_SERVICE_URL",
           )}/product`,
+          {
+            params: {
+              take,
+              cursor,
+              name,
+              categories,
+            },
+          },
         )
         .pipe(
           map((response) => response.data),

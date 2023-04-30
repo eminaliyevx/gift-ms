@@ -131,7 +131,7 @@ export class AuthService {
       from: "admin@eminaliyev.tech",
       to: account.email,
       subject: "Gift | Email confirmation",
-      html: `<a href="http://159.223.250.148/confirm/${hash}">Click on the link to confirm your email address</a>`,
+      html: `<a href="http://159.223.250.148:3000/confirm/${hash}">Click on the link to confirm your email address</a>`,
     });
 
     return hash;
